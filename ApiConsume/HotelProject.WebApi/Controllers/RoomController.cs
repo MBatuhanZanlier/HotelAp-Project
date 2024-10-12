@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using HotelProject.BusinessLayer.Abstract;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelProject.WebApi.Controllers
@@ -6,11 +7,19 @@ namespace HotelProject.WebApi.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class RoomController : ControllerBase
-    {
+    { 
+        private readonly IRoomService _roomService;
+
+        public RoomController(IRoomService roomService)
+        {
+            _roomService = roomService;
+        }
+
         [HttpGet]
         public IActionResult RoomList()
-        {
-            return Ok();
+        { 
+            var values=_roomService.TGetList();
+            return Ok(values);
         }
         [HttpDelete]
         public IActionResult DeleteRoom()

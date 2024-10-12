@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiConsume", "ApiConsume", "{AA152909-AA26-4F77-95DD-4F3AC16CDCBE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{CB4456AC-4876-4B3F-9BA0-5081767B528A}"
+	ProjectSection(SolutionItems) = preProject
+		ApiConsume\HotelProject.WebApi\Startup.cs = ApiConsume\HotelProject.WebApi\Startup.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDoList", "ToDoList", "{CB219AEC-9503-4823-AC7E-3FD16B653F4E}"
 EndProject
