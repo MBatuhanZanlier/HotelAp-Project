@@ -4,14 +4,16 @@ using HotelProject.DataAccessEntityLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HotelProject.DataAccessEntityLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20241012095935_mig_add_booking")]
+    partial class mig_add_booking
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -183,9 +185,6 @@ namespace HotelProject.DataAccessEntityLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RoomCount")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SpecialRequest")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
