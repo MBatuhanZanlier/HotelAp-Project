@@ -1,0 +1,28 @@
+﻿@model List<BookigApiViewModel.Result>
+@{
+    Layout = null;
+    int count = 0;
+} 
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link hre
+<div class="container"> 
+    <table class="table table-bordered"> 
+
+    <tr> 
+        <th>#</th>
+        <th>Otel Adı</th>
+        <th>Otel Puanı</th>
+        <th>Otel Detayları</th>
+    </tr> 
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr> 
+                <td>@count</td>
+                <td>@item.name</td>
+                <td>@item.reviewScore</td>
+                <td><a href="#" class="btn btn-outline-dark">Detaylar</a></td>
+            </tr>
+        }
+</div>
+    </table>

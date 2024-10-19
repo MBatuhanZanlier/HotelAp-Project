@@ -28,7 +28,7 @@ namespace HotelProject.WebApi.Controllers
             return Ok("Başarıyla Eklendi");
 
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteAbout(int id)
         {
             var values = _aboutService.TGetbyId(id);
