@@ -1,4 +1,5 @@
 ﻿using HotelProject.BusinessLayer.Abstract;
+using HotelProject.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,24 +23,29 @@ namespace HotelProject.WebApi.Controllers
             return Ok(values);
         }
         [HttpDelete]
-        public IActionResult DeleteRoom()
-        {
+        public IActionResult DeleteRoom(int id)
+        { 
+            var values=_roomService.TGetbyId(id);
+            _roomService.TDelete(values);
             return Ok();
         }
         [HttpPost]
-        public IActionResult AddRoom()
-        {
-            return Ok();
+        public IActionResult AddRoom(Room room)
+        { 
+            _roomService.TInsert(room);
+            return Ok("Başarıyla Eklendi");
         }
         [HttpPut]
-        public IActionResult UpdateRoom()
-        {
-            return Ok();
+        public IActionResult UpdateRoom(Room room)
+        { 
+            _roomService.TUpdate(room);
+            return Ok("Başarıyla Güncellendi");
         }
         [HttpGet("{id}")]
-        public IActionResult GetRoom()
+        public IActionResult GetRoom(int id)
         {
-            return Ok();
+            var values = _roomService.TGetbyId(id);
+            return Ok(values);
         }
     }
 }

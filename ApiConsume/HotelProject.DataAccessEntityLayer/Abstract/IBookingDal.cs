@@ -11,5 +11,8 @@ namespace HotelProject.DataAccessEntityLayer.Abstract
     { 
         public void BookingStatusChangeApproved(Booking booking);
         public void BookingStatusChangeApproved2(int id);
+        public int GetBookingCount();
+        List<Booking> TGetBookingLastList();
+        void BookingStatusChangeApproved3(int id); 
     }
 }

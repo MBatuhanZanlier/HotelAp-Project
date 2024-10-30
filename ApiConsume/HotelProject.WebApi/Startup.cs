@@ -47,10 +47,27 @@ namespace HotelProject.WebApi
             services.AddScoped<IBookingDal, EfBookingDal>();
             services.AddScoped<IBookingService, BookingManager>();
 
+            services.AddScoped<IContactDal, EfContactDal>();
+            services.AddScoped<IContactService, ContactManager>();
 
             services.AddScoped<IContactDal, EfContactDal>();
             services.AddScoped<IContactService, ContactManager>();
 
+            services.AddScoped<IGuestDal, EfGuestDal>();
+            services.AddScoped<IGuestService, GuestManager>();
+
+
+            services.AddScoped<ISendMessageDal, EfSendMessageDal>();
+            services.AddScoped<ISendMessageService, SendMessageManager>();
+
+            services.AddScoped<IMessageCategoryDal, EfMessageCategoryDal>();
+            services.AddScoped<IMessageCategoryService, MessageCategoryManager>();
+
+            services.AddScoped<IAppUserDal, EfAppUserDal>();
+            services.AddScoped<IAppUserService, AppUserManager>();
+
+            services.AddScoped<IWorkLocationDal, EfWorklocationDal>();
+            services.AddScoped<IWorkLocationService, WorkLocationManager>();
             services.AddAutoMapper(typeof(Startup));
             services.AddCors(opt =>
             {
@@ -59,7 +76,8 @@ namespace HotelProject.WebApi
                     opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
                 });
             });
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HotelProject.WebApi", Version = "v1" });
@@ -75,7 +93,8 @@ namespace HotelProject.WebApi
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "HotelProject.WebApi v1"));
             }
-
+            app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404", "?code{0}"); 
+            app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors("OtelApiCors");
             app.UseAuthorization();

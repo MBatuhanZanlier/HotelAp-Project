@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace HotelProject.DataAccessEntityLayer.Abstract
 {
- public interface IStaffDal:IGenericDal<Staff>
+    public interface IStaffDal : IGenericDal<Staff>
     {
+        int GetStaffCount(); 
+        List<Staff> Last4Staff();
     }
 }

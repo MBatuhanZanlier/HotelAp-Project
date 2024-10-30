@@ -3,6 +3,7 @@
     Layout = null;
 }
 
+@* Contact sayfası *@
 <!DOCTYPE html>
 <html lang="en">
 @await Component.InvokeAsync("_DefaultHeadComponentPartial")
@@ -11,10 +12,8 @@
         <!-- Spinner Start -->
         @await Component.InvokeAsync("_DefaultSpinnerComponentPartial")
         @await Component.InvokeAsync("_DefaultNavbarComponentPartial")
-        @await Component.InvokeAsync("_BookingCoverComponentPartial")
-
-        @await Component.InvokeAsync("_BookingRezarvationComponentPartial")
-
+        @await Component.InvokeAsync("_ContactCoverComponentPartial")
+        @await Component.InvokeAsync("_ContactSendMessageComponentPartial")
         @await Component.InvokeAsync("_DefaultNewsletterComponentPartial")
         @await Component.InvokeAsync("_DefaultFooterComponentPartial")
         <!-- Back to Top -->
